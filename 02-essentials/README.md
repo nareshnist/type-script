@@ -720,6 +720,234 @@ Say this confidently 😉
 *End of Day 3 README*
 
 
+# TypeScript Types – Knowledge Check & Answers (One-Shot README)
+
+> One-shot, copy-paste ready README that **tests your TypeScript knowledge** and includes **correct answers + clarifications** based on the last two conversations.
+
+---
+
+## Covered Topics
+
+* Basic Types (`number`, `string`, `boolean`)
+* Arrays & Tuples
+* Object Types
+* Literal Types
+* Enums
+* `any`
+* Optional Chaining (`?.`)
+* Non-null Assertion (`!`)
+
+---
+
+# 🧠 Knowledge Check Questions & Answers
+
+---
+
+## Question 1 — Array
+
+```ts
+let values: number[] = [1, 2, 3, "4"];
+```
+
+### ✅ Answer
+
+This is invalid because `values` is declared as `number[]`, but a `string` value is added.
+
+---
+
+## Question 2 — Tuple
+
+```ts
+let user: [number, string];
+user = [10, "Naresh", true];
+```
+
+### ✅ Answer
+
+This will NOT compile.
+
+Reason:
+
+* Tuples have **fixed length** and **fixed order**
+* Only two elements are allowed: `[number, string]`
+
+---
+
+## Question 3 — Object Type
+
+Define a `Product` type with:
+
+* `id` → number
+* `name` → string
+* `price` → number
+* `discount` → optional number
+
+### ✅ Answer
+
+```ts
+type Product = {
+  id: number;
+  name: string;
+  price: number;
+  discount?: number;
+};
+```
+
+---
+
+## Question 4 — Literal Type
+
+```ts
+let mode: "create" | "edit";
+```
+
+### ✅ Allowed Values
+
+* "create"
+* "edit"
+
+### ❌ Not Allowed
+
+* "delete"
+* "view"
+
+---
+
+## Question 5 — Enum
+
+```ts
+enum Role {
+  Admin,
+  User,
+  Guest
+}
+```
+
+### ✅ Answer
+
+```ts
+Role.User === 1
+```
+
+Explanation:
+
+* Enums start from `0` by default
+
+---
+
+## Question 6 — `any`
+
+```ts
+let response: any;
+response.toUpperCase();
+```
+
+### ✅ Answer
+
+* `any` disables TypeScript type checking
+* Errors are NOT caught at compile time
+* Can cause **runtime crashes**
+
+🚫 Avoid using `any` in production code
+
+---
+
+## Question 7 — Optional Chaining (`?.`)
+
+```ts
+const user = {};
+console.log(user.profile?.email);
+```
+
+### ✅ Output
+
+```ts
+undefined
+```
+
+Reason:
+
+* `profile` does not exist
+* Optional chaining safely returns `undefined`
+
+---
+
+## Question 8 — Non-null Assertion (`!`)
+
+```ts
+let input = document.querySelector("#name");
+input!.value = "Naresh";
+```
+
+### ✅ Answer
+
+* TypeScript will NOT throw an error
+* `!` tells TS: **“this value is NOT null”**
+
+⚠️ Important:
+
+* `!` is **NOT type casting**
+* Runtime error is still possible if element does not exist
+
+---
+
+## Question 9 — `?` vs `!`
+
+### ✅ Answer
+
+| Operator | Meaning         | Safety   |
+| -------- | --------------- | -------- |
+| `?.`     | Safe access     | ✅ Safer  |
+| `!`      | Skip null check | ⚠️ Risky |
+
+✔ Prefer `?.` whenever possible
+
+---
+
+## Question 10 — Real-world API State
+
+Possible values:
+
+* "idle"
+* "loading"
+* "success"
+* "error"
+
+### ✅ Best Type
+
+```ts
+let apiStatus: "idle" | "loading" | "success" | "error";
+```
+
+Reason:
+
+* Prevents invalid values
+* Ideal for UI & API state handling
+
+---
+
+## 🔑 Key Takeaways
+
+* Arrays → same type values only
+* Tuples → fixed length + fixed order
+* Use literal types for known values
+* Avoid `any`
+* Prefer `?.` over `!`
+* `!` is NOT type casting
+
+---
+
+## ✅ Final Assessment
+
+* Knowledge Level: **Strong**
+* Ready for next topic: **Interface vs Type** 🚀
+
+---
+
+*End of README*
+
+
+
 
 NEVER with function return type
 Enum
