@@ -518,3 +518,91 @@ tsc --init
 ### creating tsconfig file `tsc --init `.
 
 ### creating package.json file `npm init -y `.
+
+
+
+# =======================================================================================================
+
+# TypeScript Node Types (`@types/node`)
+
+## Overview
+
+When working with **TypeScript** in a Node.js project, TypeScript needs **type definitions** for the modules you use. Node.js provides built-in modules like:
+
+- `fs`
+- `path`
+- `http`
+- `process`
+- `Buffer`
+- And more…
+
+TypeScript **does not include these types by default**, so we need to install them separately.
+
+---
+
+## Why install `@types/node`
+
+Consider the following TypeScript code:
+
+```ts
+import fs from "fs";
+
+const data = fs.readFileSync("file.txt", "utf-8");
+console.log(data);
+```
+
+Without `@types/node`, TypeScript will throw an error:
+
+```
+Cannot find module 'fs' or its corresponding type declarations.
+```
+
+`@types/node` provides the necessary **type definitions** so TypeScript can:
+
+- Compile Node.js code correctly.
+- Provide **type safety**.
+- Enable **autocompletion** in IDEs like VSCode.
+
+---
+
+## Installation
+
+Install the type definitions as a **dev dependency** because they are only needed during development:
+
+```bash
+npm install @types/node --save-dev
+```
+
+or with Yarn:
+
+```bash
+yarn add @types/node --dev
+```
+
+---
+
+## When do you need it?
+
+Install `@types/node` if your TypeScript project:
+
+1. Uses Node.js built-in modules (`fs`, `path`, `http`, etc.).
+2. Runs in a Node.js environment (backend, server-side scripts, CLI tools).
+3. Needs proper TypeScript type checking and IDE autocompletion.
+
+> 💡 Note: If your project is purely frontend (React, Vue, Angular) and does not use Node APIs, you usually **don’t need** `@types/node`.
+
+---
+
+## Summary
+
+- TypeScript needs type information for Node modules.
+- `@types/node` provides that type info.
+- Install it as a dev dependency.
+- Ensures type safety, correct compilation, and better developer experience.
+
+---
+
+## References
+
+- [TypeScript Handbook - Modules](https://www.typescriptlang.org/docs/handbook/modules.html)
+- [DefinitelyTyped - @types/node](https://www.npmjs.com/package/@types/node)
