@@ -1,0 +1,4 @@
+- Class
+- Constructure ,consture(easy initializeation called Parameter Properties)
+- accessmodifiers(privite ,public, protected,read-only)
+- 
