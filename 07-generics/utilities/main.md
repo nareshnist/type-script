@@ -5,3 +5,5 @@
 5. readonly
 6. required
 7. exclude 
+8. extract  // Exclude mariyu Extract fields meeda kaadu, union values meeda work chestayi.
+
